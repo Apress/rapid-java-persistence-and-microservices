@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.6.RELEASE'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'project-report'
+
+group='eshop' // for mavem
+version='1.0'
+
+bootJar  {
+    baseName = 'eshop'
+    version =  '1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+
+    compile ([
+        "org.springframework.boot:spring-boot-starter-web",
+        "org.springframework.boot:spring-boot-starter-jdbc",
+        "org.springframework.boot:spring-boot-starter-data-jpa",
+        "org.springframework.boot:spring-boot-starter-test"
+    ])
+
+	compile ([
+    	"mysql:mysql-connector-java:5.1.38",
+    	"org.postgresql:postgresql:9.4.1208",
+    	"org.projectlombok:lombok:1.16.8",
+    	"org.sql2o:sql2o:1.5.4"
+	])
+    
+    testCompile("junit:junit")
+}
+

@@ -1,0 +1,10 @@
+server:
+  context-path: /eshop
+  port: 8080
+
+spring:
+  profiles: dev
+  jpa:
+    hibernate.ddl-auto: create
+    show-sql: true
+    generate-ddl: true

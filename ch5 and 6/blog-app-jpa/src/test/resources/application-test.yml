@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: blog-service
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true

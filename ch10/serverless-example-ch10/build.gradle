@@ -1,0 +1,37 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+java {
+    group = 'com.example'
+    version = '1.0'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+bootJar  {
+    archiveBaseName = 'serverless-example'
+    version =  '1.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+    compile("org.springframework.cloud:spring-cloud-starter-function-web")
+    compile("org.springframework.cloud:spring-cloud-function-adapter-aws")
+    compile("org.projectlombok:lombok:1.18.6")
+    annotationProcessor 'org.projectlombok:lombok:1.18.6'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR1"
+    }
+}

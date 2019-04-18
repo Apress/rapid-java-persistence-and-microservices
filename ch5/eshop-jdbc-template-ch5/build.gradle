@@ -1,0 +1,33 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+bootJar  {
+    archiveBaseName = 'eshop'
+    version =  '1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile ([
+        "org.springframework.boot:spring-boot-starter-jdbc",
+        "org.springframework.boot:spring-boot-starter-test"
+    ])
+
+	compile ([
+    	"mysql:mysql-connector-java:8.0.15",
+    	"org.projectlombok:lombok:1.18.6"
+	])
+
+    testCompile("junit:junit")
+    testCompile("org.projectlombok:lombok:1.18.6")
+    annotationProcessor("org.projectlombok:lombok:1.18.6")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.6")
+}

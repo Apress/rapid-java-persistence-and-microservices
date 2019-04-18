@@ -1,0 +1,32 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '1.0'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+bootJar {
+    baseName = 'admin-service'
+    version =  '1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('springCloudVersion', 'Greenwich.RELEASE')
+}
+
+dependencies {
+    compile("de.codecentric:spring-boot-admin-server:2.1.1")
+    compile("de.codecentric:spring-boot-admin-server-ui:2.1.1")
+    compile("org.projectlombok:lombok:1.18.6")
+    annotationProcessor("org.projectlombok:lombok:1.18.6")
+}

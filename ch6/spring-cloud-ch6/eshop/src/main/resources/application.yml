@@ -1,0 +1,46 @@
+server:
+  servlet:
+    context-path: /eshop
+  #port: 0
+  port: 8081
+
+spring:
+  application:
+    name: eshop
+  datasource:
+    url: jdbc:mysql://localhost:3306/db1
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate.ddl-auto: create-drop
+    show-sql: true
+    generate-ddl: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:7777/admin
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring.zipkin.base-url: http://localhost:9411/
+
+security:
+  oauth2:
+    client:
+      clientId: SampleClientId
+      clientSecret: secret
+    resource:
+      accessTokenUri: http://localhost:8083/auth/oauth/token
+      tokenInfoUri: http://localhost:8083/auth/oauth/check_token

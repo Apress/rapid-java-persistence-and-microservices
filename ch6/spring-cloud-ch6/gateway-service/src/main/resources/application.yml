@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: zuul
+  boot:
+    admin:
+      client:
+        url: http://localhost:7777/admin
+
+server:
+  port: 9999
+
+zuul:
+  ignoredServices: '*'
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    config:
+      path: /config/**
+      url: http://localhost:8888/config/
+    eshop:
+      path: /eshop/**
+      url: http://localhost:8081/eshop/
+    inventory:
+      path: /inventory/**
+      url: http://localhost:8082/inventory/
+    admin:
+      path: /admin/**
+      url: http://localhost:7777/admin/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring.main.allow-bean-definition-overriding: true

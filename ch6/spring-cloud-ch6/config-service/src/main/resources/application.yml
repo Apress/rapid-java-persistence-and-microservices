@@ -1,0 +1,15 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:7777/admin
+
+server:
+  port: 8888
+  servlet.context-path: /config
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

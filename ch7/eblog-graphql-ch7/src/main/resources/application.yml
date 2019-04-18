@@ -1,0 +1,30 @@
+server:
+  port: 8201
+  servlet:
+    contextPath: /eblog
+
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
+
+graphiql:
+  mapping: /graphiql
+  endpoint: /eblog/graphql
+  enabled: true
+  pageTitle: GraphiQL
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/eblog?autoReconnect=true
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.jdbc.Driver
+    dialect=org:
+      hibernate:
+        dialect: MySQL5InnoDBDialect
+  jpa:
+    hibernate.ddl-auto: create
+    show-sql: true
+  generate-ddl: true

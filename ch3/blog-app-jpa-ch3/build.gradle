@@ -29,5 +29,6 @@ dependencies {
 
     implementation("org.projectlombok:lombok:1.18.6")
     annotationProcessor("org.projectlombok:lombok:1.18.6")
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 }
 

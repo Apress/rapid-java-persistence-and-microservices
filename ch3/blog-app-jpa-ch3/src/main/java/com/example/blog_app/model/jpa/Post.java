@@ -1,8 +1,12 @@
 package com.example.blog_app.model.jpa;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import lombok.*;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +18,9 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString(exclude = {"blog", "user", "files"})
 @EqualsAndHashCode(exclude = {"blog", "user", "files"})
+@TypeDefs(
+        {@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class),
+                @TypeDef(name = "json", typeClass = JsonStringType.class)})
 @Entity
 public class Post implements Serializable {
 
@@ -23,13 +30,11 @@ public class Post implements Serializable {
     private String title;
     private String content;
 
-    @Type(type = "com.example.blog_app.constants.PgArrayType")
+    @Type(type = "json")
     private String[] tags;
 
     @Column(name = "post_status")
-    @Type(type = "com.example.blog_app.constants.PgEnumType",
-            parameters = {@org.hibernate.annotations.Parameter(name = "enumClassName",
-                    value = "com.example.blog_app.model.jpa.PostStatus")})
+    @Enumerated(EnumType.ORDINAL)
     PostStatus postStatus;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

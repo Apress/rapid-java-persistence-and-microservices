@@ -22,6 +22,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 
     implementation('org.postgresql:postgresql:42.2.5')
+    implementation 'com.vladmihalcea:hibernate-types-52:2.14.0'
 
     testImplementation('junit:junit:4.12')
     testImplementation('org.springframework.boot:spring-boot-starter-test')

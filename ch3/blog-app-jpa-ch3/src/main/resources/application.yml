@@ -14,9 +14,9 @@ spring:
       ddl-auto: update
     generate-ddl: true
   datasource:
-    username: postgres
-    password: postgres
-    url: jdbc:postgresql://localhost:5432/blogs
+    username: example
+    password: example
+    url: jdbc:postgresql://localhost:5432/example
     driverClassName: org.postgresql.Driver
 
 spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation: true #

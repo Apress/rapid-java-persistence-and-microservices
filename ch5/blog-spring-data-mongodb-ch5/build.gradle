@@ -1,13 +1,13 @@
 plugins {
-    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'org.springframework.boot' version '2.6.2'
     id 'java'
 }
 
 apply plugin: 'io.spring.dependency-management'
 
 bootJar {
-    baseName = 'blog-app'
-    version =  '1.0'
+    name = 'blog-app'
+    DEFAULT_VERSION =  '1.0'
 }
 
 repositories {
@@ -16,13 +16,14 @@ repositories {
 
 dependencies {
 
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
-    compile('org.projectlombok:lombok:1.18.6')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+    implementation('org.projectlombok:lombok:1.18.22')
 
-    testCompile('org.junit.jupiter:junit-jupiter-api:5.4.0')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-    annotationProcessor("org.projectlombok:lombok:1.18.6")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.6")
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.8.2')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    annotationProcessor("org.projectlombok:lombok:1.18.22")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.22")
+    testImplementation('junit:junit:4.13.2')
 }
 

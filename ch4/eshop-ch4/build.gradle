@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'org.springframework.boot' version '2.6.2'
     id 'java'
 }
 
@@ -25,19 +25,19 @@ repositories {
 
 dependencies {
 
-    compile ([
+    implementation ([
         "org.springframework.boot:spring-boot-starter-web",
         "org.springframework.boot:spring-boot-starter-jdbc",
         "org.springframework.boot:spring-boot-starter-data-jpa"
     ])
 
-	compile ([
+    implementation ([
     	"mysql:mysql-connector-java:8.0.15",
         "org.postgresql:postgresql:42.2.5",
     	"org.projectlombok:lombok:1.18.6"
 	])
-    annotationProcessor 'org.projectlombok:lombok:1.18.6'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
     
-    testCompile("junit:junit")
+    testImplementation('junit:junit:4.13.2')
 }
 
